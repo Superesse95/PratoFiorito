@@ -53,21 +53,29 @@ def explore_area(matrix, m_sum, path_matrix, row, col):
             if(path_matrix[row - 1][col - 1] != 'p'):
                 if(m_sum[row - 1][col - 1] != 0):
                    path_matrix[row - 1][col - 1] = m_sum[row - 1][col - 1]
+                else:
+                    points_to_explore.append([row - 1, col - 1])
 
         if(row + 1 <= m_sum.shape[0] - 1 and col - 1 >= 0 and matrix[row + 1][col - 1] != 1):
             if(path_matrix[row + 1][col - 1] != 'p'):
                 if(m_sum[row + 1][col - 1] != 0):
                     path_matrix[row + 1][col - 1] = m_sum[row + 1][col - 1]
+                else:
+                    points_to_explore.append([row + 1, col - 1])
 
         if(row - 1 >= 0 and col + 1 <= m_sum.shape[1] - 1 and matrix[row - 1][col + 1] != 1):
             if(path_matrix[row - 1][col + 1] != 'p'):
                 if(m_sum[row - 1][col + 1] != 0):
                     path_matrix[row - 1][col + 1] = m_sum[row - 1][col + 1]
+                else:
+                    points_to_explore.append([row - 1, col + 1])
 
         if(row + 1 <= m_sum.shape[0] - 1 and col + 1 <= m_sum.shape[1] - 1 and matrix[row + 1][col + 1] != 1):
             if(path_matrix[row + 1][col + 1] != 'p'):
                 if(m_sum[row + 1][col + 1] != 0):
                     path_matrix[row + 1][col + 1] = m_sum[row + 1][col + 1]
+                else:
+                    points_to_explore.append([row + 1, col + 1])
     else:
         path_matrix[row][col] = m_sum[row][col]
     return points_to_explore
